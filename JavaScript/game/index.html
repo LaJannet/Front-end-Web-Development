@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .example_path {
+            width: 1230px;
+            height: 560px;
+            background: yellow;
+            background-image: url(https://1informer.com/wp-content/uploads/2020/11/860x394.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        
+        .example_block {
+            width: 260px;
+            height: 120px;
+            background-image: url(images/image-removebg-preview\ \(1\).png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            left: 0px;
+            top: 0px;
+        }
+        
+        .cent {
+            text-align: center;
+            padding: 2px;
+        }
+        
+        .rig {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+        }
+        
+        button {
+            background-color: azure;
+        }
+        
+        button:hover {
+            background-color: rgb(255, 241, 172);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="example_path">
+        <div class="example_block" id="block"></div>
+    </div>
+    <div class="rig">
+        <div class="cent">
+            <button onclick="moveU('block')"> &uArr;</button>
+        </div>
+        <div class="cent">
+            <button onclick="moveL('block')">&lArr;</button>
+            <button onclick="stop('block')">&#10006;</button>
+            <button onclick="moveR('block')"> &rArr;</button>
+        </div>
+        <div class="cent">
+            <button onclick="moveD('block')">&dArr;</button>
+        </div>
+    </div>
+    <script>
+        var timer;
+        let to = 0;
+        var left = 0;
+
+
+        function moveR(id) {
+            stop();
+            var elem = document.getElementById(id);
+
+            function frame() {
+                if (left < 840)
+                    left++;
+                elem.style.left = left + 'px';
+            }
+            timer = setInterval(frame, 10);
+        }
+
+        function moveL(id) {
+            stop();
+            var elem = document.getElementById(id);
+
+            function frame() {
+                if (left > 0)
+                    left--;
+                elem.style.left = left + 'px';
+            }
+            timer = setInterval(frame, 10);
+        }
+
+        function moveD(id) {
+            stop();
+            var elem = document.getElementById(id);
+
+            function frame() {
+                if (to < 440)
+                    to++;
+                elem.style.top = to + 'px';
+            }
+            timer = setInterval(frame, 10);
+        }
+
+        function moveU(id) {
+            stop();
+            var elem = document.getElementById(id);
+
+            function frame() {
+                if (to > 0)
+                    to--;
+                elem.style.top = to + 'px';
+            }
+            timer = setInterval(frame, 10);
+        }
+
+        function stop() {
+            clearInterval(timer);
+        }
+    </script>
+</body>
+
+</html>

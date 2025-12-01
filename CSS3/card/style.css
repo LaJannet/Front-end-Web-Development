@@ -1,0 +1,100 @@
+            @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Dancing+Script&family=Delius&family=Inspiration&family=Sansita+Swashed:wght@300&family=Shadows+Into+Light&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cherry+Cream+Soda&family=Dancing+Script&family=Delius&family=Inspiration&family=Sansita+Swashed:wght@300&family=Shadows+Into+Light&display=swap');
+            html,
+            body {
+                padding: 0;
+                margin: 0;
+            }
+            
+            body {
+                background: url(images/ris.jpg);
+                background-size: 100%;
+            }
+            
+            .wrapper {
+                width: 960px;
+                background: rgb(224, 209, 162);
+                margin: 0 auto;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+            
+            h1 {
+                font-weight: bold;
+                font-family: 'Cherry Cream Soda', cursive;
+                font-size: 36px;
+                text-align: center;
+                background-color: #261900;
+                color: rgb(255, 245, 218);
+                padding: 20px;
+            }
+            
+            p {
+                font-family: 'Delius', cursive;
+                padding: 0 20px 0 20px;
+                /* font-size: 20px; */
+            }
+            
+            .imgbox {
+                top: -60px;
+                text-align: center;
+                position: relative;
+                z-index: 9999;
+                margin: 0 auto;
+            }
+            
+            .img {
+                width: 400px;
+                height: 320px;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+                background: url(images/r.png);
+                background-color: rgb(148, 148, 148);
+                border: solid 15px #fff;
+                padding: 15px;
+                margin: 0 auto;
+            }
+            
+            #content {
+                min-height: 600px;
+            }
+            
+            footer {
+                font-family: 'Cherry Cream Soda', cursive;
+                font-size: 36px;
+                background-color: #261900;
+                color: rgb(255, 245, 218);
+                height: 60px;
+                text-align: center;
+                padding: 5px 10px 50px;
+            }
+            
+            .java {
+                position: relative;
+                z-index: 9999;
+                top: -57px;
+                left: -18px;
+                width: 89px;
+                height: 93px;
+                opacity: 0;
+                background-image: url(images/bird2.png);
+                animation: play 1s steps(4) infinite, move 5s 1 forwards;
+            }
+            
+            @keyframes play {
+                0% {
+                    background-position: 0px 0;
+                }
+                100% {
+                    background-position: -357px 0;
+                }
+            }
+            
+            @keyframes move {
+                from {
+                    opacity: 1;
+                    left: 0%;
+                }
+                to {
+                    opacity: 0;
+                    left: 100%;
+                }
+            }

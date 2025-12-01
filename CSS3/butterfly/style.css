@@ -1,0 +1,160 @@
+body {
+    background: url(images/sky.webp) no-repeat;
+    background-size: 100%;
+}
+
+.header {
+    font-weight: bold;
+    font-family: Segoe Print, sans-serif;
+    font-size: 80px;
+    color: #cc7700;
+    text-align: center;
+    margin: 20px;
+}
+
+.flower {
+    height: 120px;
+    width: 120px;
+    position: absolute;
+    top: 520px;
+    left: 75px;
+    background-image: url(images/flower.png);
+}
+
+#n2.flower {
+    top: 520px;
+    left: 0;
+}
+
+#n3.flower {
+    top: 520px;
+    left: 150px;
+}
+
+#n4.flower {
+    top: 460px;
+    left: 75px;
+}
+
+#n5.flower {
+    top: 460px;
+    left: 1025px;
+}
+
+#n6.flower {
+    top: 520px;
+    left: 1100px;
+}
+
+#n7.flower {
+    top: 520px;
+    left: 950px;
+}
+
+#n8.flower {
+    top: 520px;
+    left: 1025px;
+}
+
+.butterfly {
+    height: 98px;
+    width: 100px;
+    position: absolute;
+    top: 540px;
+    left: 75px;
+    background-image: url(images/butterfly.png);
+    transform: rotate(10deg);
+    animation: flitter 300ms ease-in-out infinite alternate, movement_butterfly 10s linear 1s, spinR 1s ease-in-out 1s, spinL 1s ease-in-out 6s, spinR 1s ease-in-out 9s;
+    animation-fill-mode: forwards;
+}
+
+
+/* На .butterfly:hover анимация приостанавливается */
+
+.butterfly:hover {
+    animation-play-state: paused;
+}
+
+
+/* анимация перемещения бабочки */
+
+@keyframes movement_butterfly {
+    from {
+        top: 540px;
+        left: 75px;
+    }
+    20% {
+        top: 500px;
+        left: 100px;
+    }
+    40% {
+        top: 250px;
+        left: 250px;
+    }
+    50% {
+        top: 200px;
+        left: 300px;
+    }
+    60% {
+        top: 350px;
+        left: 500px;
+    }
+    70% {
+        top: 400px;
+        left: 700px;
+    }
+    80% {
+        top: 450px;
+        left: 720px;
+    }
+    90% {
+        top: 500px;
+        left: 980px;
+    }
+    to {
+        top: 520px;
+        left: 1025px;
+    }
+}
+
+
+/* анимация взмахов крыльями бабочки */
+
+@keyframes flitter {
+    0% {
+        transform: rotate(10deg) scale(1, 1);
+    }
+    100% {
+        transform: rotate(10deg) scale(0.2, 1);
+    }
+}
+
+
+/* анимация - поворот направо */
+
+@keyframes spinR {
+    0% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(40deg);
+    }
+    100% {
+        transform: rotate(10deg);
+    }
+}
+
+
+/* анимация - поворот налево */
+
+@keyframes spinL {
+    0% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(-40deg);
+    }
+    100% {
+        transform: rotate(10deg);
+    }
+}

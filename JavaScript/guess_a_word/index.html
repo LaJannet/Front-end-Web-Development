@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div id="game">
+    <input type="button" name="bb" onclick="check()" value="Добавить букву">
+    <div id="answ"></div>
+    <div id="rem"></div>
+    <div id="gue"></div>
+    <div id="letr"></div>
+</div>
+<a href="https://colibris62bethune.org/nazvanie/samoe-dlinnoe-nazvanie-zhivotnogo.html">Хочу узнать о окружающем меня мире</a>
+
+<body>
+    <script>
+        let words = ["слон", "тигр", "пантера", "какаду", "йети", "леопард", "снегирь", "вилорог", "сапсан", " парусник", "кета", "импала", "копепод", "кубомедуза", "немертин", "капибарa", "саламандра", "кодьяк", "щелезуб", "галаго", "лора", "фосса", "долгопят", "поясохвост", "руконожка", "звездонос", "евражка", "бандикут", "щитоспинка", "дромедар", "присосконог", "потатуйка", "психролют"];
+        var letters = [];
+        let word = words[Math.floor(Math.random() * words.length)];
+        var guess = ""; // попытка
+        var score = 12; // счет
+        var answer = []; // массив для отображения слова с угаданными и не угаданными буквами
+        answer[0] = word[0]; // первая буква будет открыта
+        answer[word.length - 1] = word[word.length - 1]; // последняя буква будет открыта
+        for (var i = 1; i < word.length - 1; i++) {
+            answer[i] = "_"; // средние буквы - в виде знаков подчеркивания
+        }
+        var remain = word.length - 2; // количество пока не угаданных букв (первая и последняя открыты)
+        function check() {
+            while (remain > 0 && letters.length < score) {
+                guess = prompt("Угадай букву или нажми Отмена, чтобы выйти из игры!");
+                if (guess == null) {
+                    break;
+                } else if (guess.length !== 1) {
+                    alert("Введите пожалуйста только одну букву!");
+                } else {
+                    letters.push(guess);
+                    for (let i = 1; i < word.length - 1; i++) {
+                        if (word[i] === guess) {
+                            answer[i] = guess;
+                            remain--;
+                        }
+                    }
+                    break;
+                }
+            }
+            if (letters.length <= score && remain == 0) {
+                gue.innerHTML = "Вы выиграли! Было загадано слово  " + word;
+            } else if (letters.length == score && remain != 0) {
+                gue.innerHTML = "Вы проиграли! Было загадано слово  " + word;
+            } else {
+                gue.innerHTML = "Kоличество попыток: " + letters.length;
+            }
+            answ.innerHTML = answer.join(" "); // обновляем вывод слова
+            rem.innerHTML = "Kоличество оставшихся букв: " + remain; // обновляем количество не угаданных букв
+
+            letr.innerHTML = "Использованы буквы: " + letters;
+
+        }
+        answ.innerHTML = answer.join(" "); // обновляем вывод слова
+        rem.innerHTML = "Kоличество оставшихся букв: " + remain;
+        if (letters.length <= score && remain == 0) {
+            gue.innerHTML = "Вы выиграли! Было загадано слово  " + word;
+        } else if (letters.length == score && remain != 0) {
+            gue.innerHTML = "Вы проиграли! Было загадано слово  " + word;
+        } else {
+            gue.innerHTML = "Kоличество попыток: " + letters.length;
+        }
+        letr.innerHTML = "Использованы буквы: " + letters;
+    </script>
+</body>
+
+</html>
